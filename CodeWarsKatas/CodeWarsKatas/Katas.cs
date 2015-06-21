@@ -14,5 +14,14 @@ namespace CodeWarsKatas
           return cc.Length > 4 ? cc.Substring(cc.Length - 4).PadLeft(cc.Length, '#') : cc;
       }
 
-    }
+      public static double CalculateAreaOfCircle(string radius)
+      {
+          double r;
+          if(!double.TryParse(radius, out r) || r<=0)
+             throw new ArgumentException();
+          var t = Math.Round(r * r * Math.PI, 2);
+          return t;
+      }
+
+   }//end class  
 }

@@ -18,6 +18,23 @@ namespace KataTesting
                 Assert.AreEqual(CodeWarsKatas.Katas.Mask("11111"), "#1111");
             }
 
-        
+            [Test]
+            public void ShouldFailNegativeNumber()
+            {
+                Assert.Throws<ArgumentException>(delegate {CodeWarsKatas.Katas.CalculateAreaOfCircle("-123"); });
+                //Assert.Throws(typeof(ArgumentException),CodeWarsKatas.Katas..CalculateAreaOfCircle("-123"));
+            }
+
+            [Test]
+            public void ShouldFailAlphaNumeric()
+            {
+                Assert.Throws<ArgumentException>(delegate {CodeWarsKatas.Katas.CalculateAreaOfCircle("number"); });
+            }
+
+            [Test]
+            public void ShouldPass1()
+            {
+                Assert.AreEqual(5881.25,CodeWarsKatas.Katas.CalculateAreaOfCircle("43.2673"));
+            }
     }
 }
