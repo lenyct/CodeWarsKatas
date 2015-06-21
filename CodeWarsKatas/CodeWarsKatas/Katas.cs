@@ -23,5 +23,17 @@ namespace CodeWarsKatas
           return t;
       }
 
+
+      public static int GetMissingCandies(int[] candies)
+      {
+          int max = candies.Max();
+          
+          return candies.Length >=1? candies.Select(x => max - x).Sum() : -1;
+      }
+
+      public static int DescendingOrder(int num)
+      {
+          return int.Parse(string.Concat(num.ToString().OrderByDescending(x => x)));
+      }
    }//end class  
 }
