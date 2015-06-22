@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace CodeWarsKatas
 {
@@ -34,6 +35,12 @@ namespace CodeWarsKatas
       public static int DescendingOrder(int num)
       {
           return int.Parse(string.Concat(num.ToString().OrderByDescending(x => x)));
+      }
+
+      public static int GetVowelCount(string str)
+      {
+          Regex r = new Regex("[aeiou]",RegexOptions.IgnoreCase);
+          return r.Matches(str).Count;    
       }
    }//end class  
 }

@@ -85,6 +85,12 @@ namespace KataTesting
             public void OrderDescending()
             {
                 Assert.AreEqual(654321, CodeWarsKatas.Katas.DescendingOrder(145263));
-            }  
+            }
+
+            [Test]
+            public void TestVowelCount()
+            {
+                Assert.AreEqual(10, CodeWarsKatas.Katas.GetVowelCount("abracadabraAEIOU"), "Nope!");
+            }
     }
 }
