@@ -92,5 +92,15 @@ namespace KataTesting
             {
                 Assert.AreEqual(10, CodeWarsKatas.Katas.GetVowelCount("abracadabraAEIOU"), "Nope!");
             }
+
+            [Test]
+            public void TestCapMe()
+            {
+                var result =new String[]{"Paul","Martin","David"};
+                var test = new string[]{"PAUL","mArTin","david"};
+                var q = CodeWarsKatas.Katas.CapMe(test);
+                Assert.AreEqual(result, CodeWarsKatas.Katas.CapMe(test));
+                //CapMe([new string[]{"KARLY", "DANIEL", "KELSEY"});
+            } 
     }
 }

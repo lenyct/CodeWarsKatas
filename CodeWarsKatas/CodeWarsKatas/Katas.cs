@@ -42,5 +42,12 @@ namespace CodeWarsKatas
           Regex r = new Regex("[aeiou]",RegexOptions.IgnoreCase);
           return r.Matches(str).Count;    
       }
+
+      public static string[] CapMe(string[] strings)
+      {
+          //strings =
+         return strings.Select(a => a.ToLower().Insert(0, a.ElementAt(0).ToString().ToUpper()).Remove(1,1)).ToArray();
+        //  return strings;
+      }
    }//end class  
 }
