@@ -49,5 +49,15 @@ namespace CodeWarsKatas
          return strings.Select(a => a.ToLower().Insert(0, a.ElementAt(0).ToString().ToUpper()).Remove(1,1)).ToArray();
         //  return strings;
       }
+
+      public static string ShorterReverseLonger(string a, string b)
+      {
+          a = String.IsNullOrWhiteSpace(a) ? "" : a;
+          b = String.IsNullOrWhiteSpace(b) ? "" : b;
+          String shorter =( a.Count() < b.Count() ? a : b);
+          String longer = new String(a.Count() >= b.Count() ? a.ToCharArray().Reverse().ToArray() : b.ToCharArray().Reverse().ToArray());
+          
+          return new StringBuilder(shorter + longer + shorter).ToString();
+      }
    }//end class  
 }
