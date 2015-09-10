@@ -178,5 +178,15 @@ namespace KataTesting
                 Assert.Fail("There seems to be an error in your code. The exception message reads as follow: " + ex.Message);
             }
         }
+
+        [Test]
+        public void IsItSquare()
+        {
+            Assert.AreEqual(false, CodeWarsKatas.Katas.IsSquare(-1), "negative numbers aren't square numbers");
+            Assert.AreEqual(false, CodeWarsKatas.Katas.IsSquare(3), "3 isn't a square number");
+            Assert.AreEqual(true, CodeWarsKatas.Katas.IsSquare(4), "4 is a square number");
+            Assert.AreEqual(true, CodeWarsKatas.Katas.IsSquare(25), "25 is a square number");
+            Assert.AreEqual(false, CodeWarsKatas.Katas.IsSquare(26), "26 isn't a square number");
+        }
     }
 }

@@ -59,5 +59,10 @@ namespace CodeWarsKatas
           
           return new StringBuilder(shorter + longer + shorter).ToString();
       }
+
+      public static bool IsSquare(int input)
+      {
+          return Math.Sqrt(input) % 1 == 0;
+      }
    }//end class  
 }
