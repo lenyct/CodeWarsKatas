@@ -69,5 +69,10 @@ namespace CodeWarsKatas
       {
           return Convert.ToInt32(Regex.Replace(s, @"[^0-9]+", ""));
       }
+
+      public static string FilterNumbers(string str)
+      {         
+         return  new string(str.Where(c => !char.IsDigit(c)).ToArray());          
+      }
    }//end class  
 }

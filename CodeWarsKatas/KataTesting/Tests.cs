@@ -188,12 +188,21 @@ namespace KataTesting
             Assert.AreEqual(true, CodeWarsKatas.Katas.IsSquare(25), "25 is a square number");
             Assert.AreEqual(false, CodeWarsKatas.Katas.IsSquare(26), "26 isn't a square number");
         }
+
         [Test]
         public static void NumbersFromStringTests()
         {
             Assert.AreEqual(123, CodeWarsKatas.Katas.FilterString("123"), "Just return the numbers");
             Assert.AreEqual(123, CodeWarsKatas.Katas.FilterString("a1b2c3"), "Just return the numbers");
             Assert.AreEqual(123, CodeWarsKatas.Katas.FilterString("aa1bb2cc3dd"), "Just return the numbers");
+        }
+
+        [Test]
+        public static void FixedTest()
+        {
+            Assert.AreEqual("test", CodeWarsKatas.Katas.FilterNumbers("test123"));
+            Assert.AreEqual("abc", CodeWarsKatas.Katas.FilterNumbers("a1b2c3"));
+            Assert.AreEqual("aabbccdd", CodeWarsKatas.Katas.FilterNumbers("aa1bb2cc3dd"));
         }
     }
 }
