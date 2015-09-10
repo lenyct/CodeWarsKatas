@@ -64,5 +64,10 @@ namespace CodeWarsKatas
       {
           return Math.Sqrt(input) % 1 == 0;
       }
+
+      public static int FilterString(string s)
+      {
+          return Convert.ToInt32(Regex.Replace(s, @"[^0-9]+", ""));
+      }
    }//end class  
 }
