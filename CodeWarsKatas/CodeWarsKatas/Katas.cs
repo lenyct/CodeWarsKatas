@@ -74,5 +74,7 @@ namespace CodeWarsKatas
       {         
          return  new string(str.Where(c => !char.IsDigit(c)).ToArray());          
       }
+
+      
    }//end class  
 }

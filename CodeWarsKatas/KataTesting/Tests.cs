@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using CodeWarsKatas.Classes;
 
 namespace KataTesting
 {
@@ -203,6 +204,17 @@ namespace KataTesting
             Assert.AreEqual("test", CodeWarsKatas.Katas.FilterNumbers("test123"));
             Assert.AreEqual("abc", CodeWarsKatas.Katas.FilterNumbers("a1b2c3"));
             Assert.AreEqual("aabbccdd", CodeWarsKatas.Katas.FilterNumbers("aa1bb2cc3dd"));
+        }
+
+        [Test]
+        public static void BlockTest()
+        {
+            Block b = new Block(new int[] { 2, 2, 2 });
+            Assert.AreEqual(2, b.GetWidth());
+            Assert.AreEqual(2, b.GetLength());
+            Assert.AreEqual(2, b.GetHeight());
+            Assert.AreEqual(8, b.GetVolume());
+            Assert.AreEqual(24, b.GetSurfaceArea());
         }
     }
 }
