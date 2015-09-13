@@ -69,12 +69,27 @@ namespace CodeWarsKatas
       {
           return Convert.ToInt32(Regex.Replace(s, @"[^0-9]+", ""));
       }
-
+     
+      //Filters numbers from strings and returns the results
       public static string FilterNumbers(string str)
       {         
          return  new string(str.Where(c => !char.IsDigit(c)).ToArray());          
       }
 
-      
+      public static int FindSmallest(int[] numbers, string toReturn)
+      {
+         return toReturn.Equals("value") ? numbers.Min() : Array.IndexOf(numbers, numbers.Min());
+      }
+
+
+      public static int[] DeleteNth(int[] arr, int x)
+      {
+          var a = new List<int>();
+
+          foreach (int b in arr)
+              if (a.Count(i => i.Equals(b)) < x)
+                  a.Add(b);
+          return a.ToArray();
+      }
    }//end class  
 }

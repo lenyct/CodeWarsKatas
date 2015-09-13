@@ -216,5 +216,37 @@ namespace KataTesting
             Assert.AreEqual(8, b.GetVolume());
             Assert.AreEqual(24, b.GetSurfaceArea());
         }
+
+        [Test]
+        public void Test_54321_value()
+        {
+            Assert.AreEqual(1, CodeWarsKatas.Katas.FindSmallest(new int[] { 5, 4, 3, 2, 1 }, "value"));
+        }
+
+        [Test]
+        public void Test_54321_index()
+        {
+            Assert.AreEqual(4, CodeWarsKatas.Katas.FindSmallest(new int[] { 5, 4, 3, 2, 1 }, "index"));
+        }
+
+        [Test]
+        public void DeleteNth1()
+        {
+            var expected = new int[] { 20, 37, 21 };
+
+            var actual = CodeWarsKatas.Katas.DeleteNth(new int[] { 20, 37, 20, 21 }, 1);
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void DeleteNth2()
+        {
+            var expected = new int[] { 1, 1, 3, 3, 7, 2, 2, 2 };
+
+            var actual = CodeWarsKatas.Katas.DeleteNth(new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 }, 3);
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
     }
 }
