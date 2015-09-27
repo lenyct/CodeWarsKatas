@@ -248,5 +248,25 @@ namespace KataTesting
 
             CollectionAssert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void TestGameStop1()
+        {
+            var actual=CodeWarsKatas.Katas.GameStop(24, 31);
+            List<String> expected = new List<string> { "Game", "Stop", "26", "Game", "28", "29", "GameStop", "31" };
+                
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void TestGameStop2()
+        {
+            var actual = CodeWarsKatas.Katas.GameStop(1, 10);
+            List<String> expected = new List<string> { "1", "2", "Game", "4", "Stop", "Game", "7", "8","Game","Stop" };
+
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
     }
 }

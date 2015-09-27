@@ -91,5 +91,23 @@ namespace CodeWarsKatas
                   a.Add(b);
           return a.ToArray();
       }
+
+      public static List<String> GameStop(int start, int end)
+      {
+          List<String> list = new List<string>();
+          for (int i = start; i <= end; i++)
+          {
+              if (i % 3 == 0 && i % 5==0)
+                  list.Add("GameStop");
+              else if (i % 3 == 0)
+                  list.Add("Game");
+              else if (i % 5 == 0)
+                  list.Add("Stop");
+              else
+                  list.Add(i.ToString());
+          }
+
+          return list;
+      }
    }//end class  
 }
