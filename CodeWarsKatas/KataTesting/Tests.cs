@@ -12,7 +12,7 @@ namespace KataTesting
     class Tests
     {
         [Test]
-        public void ExamplesTests()
+        public void MaskingTest()
         {
             Assert.AreEqual(CodeWarsKatas.Katas.Mask("4556364607935616"), "############5616");
             Assert.AreEqual(CodeWarsKatas.Katas.Mask("1"), "1");
@@ -20,20 +20,19 @@ namespace KataTesting
         }
 
         [Test]
-        public void ShouldFailNegativeNumber()
+        public void ShouldFailNegativeNumberRadiusOfCirlce()
         {
-            Assert.Throws<ArgumentException>(delegate { CodeWarsKatas.Katas.CalculateAreaOfCircle("-123"); });
-            //Assert.Throws(typeof(ArgumentException),CodeWarsKatas.Katas..CalculateAreaOfCircle("-123"));
+            Assert.Throws<ArgumentException>(delegate { CodeWarsKatas.Katas.CalculateAreaOfCircle("-123"); });           
         }
 
         [Test]
-        public void ShouldFailAlphaNumeric()
+        public void ShouldFailAlphaNumericRadiusOfCirlce()
         {
             Assert.Throws<ArgumentException>(delegate { CodeWarsKatas.Katas.CalculateAreaOfCircle("number"); });
         }
 
         [Test]
-        public void ShouldPass1()
+        public void ShouldPass1RadiusOfCircle()
         {
             Assert.AreEqual(5881.25, CodeWarsKatas.Katas.CalculateAreaOfCircle("43.2673"));
         }
