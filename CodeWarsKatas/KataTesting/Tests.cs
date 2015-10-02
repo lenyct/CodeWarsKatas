@@ -267,5 +267,14 @@ namespace KataTesting
 
             CollectionAssert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void PersistenceTests()
+        {            
+            Assert.AreEqual(3, CodeWarsKatas.Katas.Persistence(39));
+            Assert.AreEqual(0, CodeWarsKatas.Katas.Persistence(4));
+            Assert.AreEqual(2, CodeWarsKatas.Katas.Persistence(25));
+            Assert.AreEqual(4, CodeWarsKatas.Katas.Persistence(999));
+        }
     }
 }
