@@ -136,5 +136,15 @@ namespace CodeWarsKatas
               return count;
           return count += Persistence(sum);
       }
+
+      public static bool isMerge(string s, string part1, string part2)
+      {
+          var concated = part2.ToArray().Concat(part1.ToArray()).ToArray();
+          var test = concated.Select(x=>x).Where(x => s.Contains(x)).ToArray();
+     
+          if (s.Length ==(test.Length))
+              return true;
+          return false;
+      }
    }//end class  
 }

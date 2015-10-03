@@ -276,5 +276,23 @@ namespace KataTesting
             Assert.AreEqual(2, CodeWarsKatas.Katas.Persistence(25));
             Assert.AreEqual(4, CodeWarsKatas.Katas.Persistence(999));
         }
+
+        [Test]
+        public void StringMerge1()
+        {
+            Assert.IsTrue(CodeWarsKatas.Katas.isMerge("codewars", "code", "wars"), "codewars can be created from code and wars");
+        }
+
+        [Test]
+        public void StringMerge2()
+        {
+            Assert.IsTrue(CodeWarsKatas.Katas.isMerge("codewars", "cdwr", "oeas"), "codewars can be created from cdwr and oeas");
+        }
+
+        [Test]
+        public void StringMerge3()
+        {
+            Assert.IsFalse(CodeWarsKatas.Katas.isMerge("codewars", "cod", "wars"), "Codewars are not codwars");
+        }
     }
 }
