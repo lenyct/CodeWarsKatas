@@ -146,5 +146,42 @@ namespace CodeWarsKatas
               return true;
           return false;
       }
+      
+    //The action of a Caesar cipher is to replace each plaintext letter with a different one a fixed number of places up or down 
+    //the alphabet.
+    //This program performs a variation of the Caesar shift. The shift increases by 1 for each character (on each iteration).
+    //If the shift is initially 1, the first character of the message to be encoded will be shifted by 1, 
+    //the second character will be shifted by 2, etc...
+      public static List<string> movingShift(string s, int shift)
+      {
+          int lettera = (int)'a';
+          int letterz = (int)'z';
+
+          int letterA = (int)'A';
+          int letterZ = (int)'Z';
+
+          StringBuilder sb = new StringBuilder();
+          foreach (Char c in s)
+          {
+              //if(shift%26)
+              if (char.IsLetter(c))
+                  sb.Append( (char)((int)c + shift %26));                  
+              else              
+                sb.Append(c);
+
+              shift++;
+                
+          }
+          //covert to 5 runners
+
+          var t = sb.ToString();
+          //"J vltasl rlhr
+          return null;
+      }
+
+      public static string demovingShift(List<string> s, int shift)
+      {
+          return "";
+      }
    }//end class  
 }

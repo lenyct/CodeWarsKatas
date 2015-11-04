@@ -294,5 +294,13 @@ namespace KataTesting
         {
             Assert.IsFalse(CodeWarsKatas.Katas.isMerge("codewars", "cod", "wars"), "Codewars are not codwars");
         }
+
+        [Test]
+        public void CaesarCipher()
+        {
+            string u = "I should have known that you would have a perfect answer for me!!!";
+            Assert.AreEqual(u,  CodeWarsKatas.Katas.demovingShift(CodeWarsKatas.Katas.movingShift(u, 1), 1));
+        }
+
     }
 }
