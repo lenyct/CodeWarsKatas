@@ -154,29 +154,62 @@ namespace CodeWarsKatas
     //the second character will be shifted by 2, etc...
       public static List<string> movingShift(string s, int shift)
       {
-          int lettera = (int)'a';
-          int letterz = (int)'z';
-
-          int letterA = (int)'A';
-          int letterZ = (int)'Z';
-
           StringBuilder sb = new StringBuilder();
           foreach (Char c in s)
           {
-              //if(shift%26)
               if (char.IsLetter(c))
-                  sb.Append( (char)((int)c + shift %26));                  
-              else              
-                sb.Append(c);
+                  sb.Append(lowerCipher((int)c, shift));
+              else
+                  sb.Append(c);
 
               shift++;
                 
           }
           //covert to 5 runners
+          return seperateOut(sb);        
+      }
 
-          var t = sb.ToString();
-          //"J vltasl rlhr
-          return null;
+      private static List<string> seperateOut(StringBuilder sb)
+      {
+          var sep = sb.ToString().Count() / 5;
+          List<string> list = new List<string>();
+          for (int i = 0; i < 4; i++)
+          {
+              list.Add(sb.ToString().Substring(0, sep));
+              sb.Remove(0, sep);
+          }
+          list.Add(sb.ToString());
+          return list;
+      }
+
+       private static bool isLowerCharacter(int c)
+       {
+           if (c >= (int)'a' || c <= (int)'z')
+               return true;
+           return false;
+       }
+
+      private static char lowerCipher(int c, int shift)
+      {
+
+          if (isLowerCharacter(c))
+          {
+              var lowerZ = (int)'z';
+
+              var t = ((int)c + (shift %26));
+              if (t > lowerZ)
+                  t = (int)'a' + (t - lowerZ)-1;
+              return (char)t;
+          }
+          else
+          {
+              var UpperZ = (int)'Z';
+
+              var t = ((int)c + (shift % 26));
+              if (t > UpperZ)
+                  t = (int)'a' + (t - UpperZ)-1;
+              return (char)t;
+          }           
       }
 
       public static string demovingShift(List<string> s, int shift)
