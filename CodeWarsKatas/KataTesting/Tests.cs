@@ -302,5 +302,18 @@ namespace KataTesting
             Assert.AreEqual(u,  CodeWarsKatas.Katas.demovingShift(CodeWarsKatas.Katas.movingShift(u, 1), 1));
         }
 
+        [Test]
+        public void CaesarCipher2()
+        {
+            string u = "P FEUZHQW!";
+            Assert.AreEqual(u,  CodeWarsKatas.Katas.demovingShift(CodeWarsKatas.Katas.movingShift(u, 1), 1));
+        }
+        
+        [Test]
+        public void CaesarCipher3()
+        {
+            string u = "bdfh";
+            Assert.AreEqual(u,  CodeWarsKatas.Katas.demovingShift(CodeWarsKatas.Katas.movingShift(u, 1), 1));
+        }
     }
 }

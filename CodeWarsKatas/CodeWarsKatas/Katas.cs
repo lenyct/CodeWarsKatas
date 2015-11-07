@@ -158,7 +158,7 @@ namespace CodeWarsKatas
           foreach (Char c in s)
           {
               if (char.IsLetter(c))
-                  sb.Append(lowerCipher((int)c, shift));
+                  sb.Append(cipher((int)c, shift));
               else
                   sb.Append(c);
 
@@ -171,12 +171,12 @@ namespace CodeWarsKatas
 
       private static List<string> seperateOut(StringBuilder sb)
       {
-          var sep = sb.ToString().Count() / 5;
+          var seperator = sb.ToString().Count() / 5;
           List<string> list = new List<string>();
           for (int i = 0; i < 4; i++)
           {
-              list.Add(sb.ToString().Substring(0, sep));
-              sb.Remove(0, sep);
+              list.Add(sb.ToString().Substring(0, seperator));
+              sb.Remove(0, seperator);
           }
           list.Add(sb.ToString());
           return list;
@@ -189,7 +189,7 @@ namespace CodeWarsKatas
            return false;
        }
 
-      private static char lowerCipher(int c, int shift)
+      private static char cipher(int c, int shift)
       {
 
           if (isLowerCharacter(c))
@@ -207,7 +207,7 @@ namespace CodeWarsKatas
 
               var t = ((int)c + (shift % 26));
               if (t > UpperZ)
-                  t = (int)'a' + (t - UpperZ)-1;
+                  t = (int)'A' + (t - UpperZ)-1;
               return (char)t;
           }           
       }
@@ -220,7 +220,9 @@ namespace CodeWarsKatas
 
               var t = ((int)c - (shift % 26));
               if (t < lowerA)
-                  t = (int)'z' - (t - lowerA) ;
+              {
+                  t = (int)'z' - ((t - lowerA) * -1) + 1;
+              }                  
               return (char)t;
           }
           else
@@ -229,7 +231,7 @@ namespace CodeWarsKatas
 
               var t = ((int)c - (shift % 26));
               if (t < UpperA)
-                  t = (int)'Z' - (t - UpperA) ;
+                  t = (int)'Z' - ((t - UpperA) * -1) + 1;
               return (char)t;
           } 
       }
