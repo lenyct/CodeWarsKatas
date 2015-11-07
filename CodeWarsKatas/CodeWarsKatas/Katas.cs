@@ -184,7 +184,7 @@ namespace CodeWarsKatas
 
        private static bool isLowerCharacter(int c)
        {
-           if (c >= (int)'a' || c <= (int)'z')
+           if (c >= (int)'a' && c <= (int)'z')
                return true;
            return false;
        }
@@ -212,9 +212,46 @@ namespace CodeWarsKatas
           }           
       }
 
+      private static char deciphier(int c, int shift)
+      {
+          if (isLowerCharacter(c))
+          {
+              var lowerA = (int)'a';
+
+              var t = ((int)c - (shift % 26));
+              if (t < lowerA)
+                  t = (int)'z' - (t - lowerA) ;
+              return (char)t;
+          }
+          else
+          {
+              var UpperA = (int)'A';
+
+              var t = ((int)c - (shift % 26));
+              if (t < UpperA)
+                  t = (int)'Z' - (t - UpperA) ;
+              return (char)t;
+          } 
+      }
+
       public static string demovingShift(List<string> s, int shift)
       {
-          return "";
+          StringBuilder sb = new StringBuilder();
+          foreach (string line in s)
+          {
+              foreach (char c in line)
+              {
+                  if (char.IsLetter(c))
+                      sb.Append(deciphier((int)c, shift));
+                  else
+                      sb.Append(c);
+
+                  shift++;
+
+              }              
+          }
+          var t = sb.ToString();
+          return sb.ToString();
       }
    }//end class  
 }
