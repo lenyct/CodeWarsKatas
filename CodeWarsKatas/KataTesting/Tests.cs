@@ -323,5 +323,18 @@ namespace KataTesting
             Assert.AreEqual("21\n2", CodeWarsKatas.Katas.Pattern(2));
             Assert.AreEqual("54321\n5432\n543\n54\n5", CodeWarsKatas.Katas.Pattern(5));
         }
+
+        [Test]
+        public void IndexOfCaps()
+        {
+            Assert.AreEqual(new int[] { 0, 1, 2, 3, 4, 5 }, CodeWarsKatas.Katas.Capitals("ALLALL"));
+            Assert.AreEqual(new int[] { 0 }, CodeWarsKatas.Katas.Capitals("Kata"));
+        }
+
+        [Test]
+        public void EvapTests()
+        {
+            Assert.AreEqual(22, CodeWarsKatas.Katas.evaporator(10, 10, 10));
+        }
     }
 }

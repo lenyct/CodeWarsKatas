@@ -274,5 +274,26 @@ namespace CodeWarsKatas
           }
           return sb.ToString();
       }
+
+      public static int[] Capitals(string word)
+      {
+          var letters = word.ToCharArray();
+          return letters.Select((x, i) => new { x, i })
+                        .Where(y => char.IsUpper(y.x))
+                        .Select(z => z.i)
+                        .ToArray();
+      }
+
+      public static int evaporator(double content, double evap_per_day, double threshold)
+      {
+          threshold = (content / 100) * threshold;
+          int day = 0;
+          while(content>=threshold)
+          {
+              content -= (content / 100) * evap_per_day;
+              day++;
+          }
+          return day;          
+      }
    }//end class  
 }
