@@ -151,7 +151,8 @@ namespace CodeWarsKatas
     //the alphabet.
     //This program performs a variation of the Caesar shift. The shift increases by 1 for each character (on each iteration).
     //If the shift is initially 1, the first character of the message to be encoded will be shifted by 1, 
-    //the second character will be shifted by 2, etc...
+      //the second character will be shifted by 2, etc...
+      #region cipher
       public static List<string> movingShift(string s, int shift)
       {
           StringBuilder sb = new StringBuilder();
@@ -253,6 +254,24 @@ namespace CodeWarsKatas
               }              
           }
           var t = sb.ToString();
+          return sb.ToString();
+      }
+#endregion
+
+      public static string Pattern(int n)
+      {
+          StringBuilder sb = new StringBuilder();
+          for (int i = n; i > 0; i--)
+          {
+              var temp = n;
+              for (int j = i; j > 0; j--)
+              {
+                  sb.Append(temp--);
+              }
+
+              if (i > 1)
+                  sb.Append("\n");              
+          }
           return sb.ToString();
       }
    }//end class  

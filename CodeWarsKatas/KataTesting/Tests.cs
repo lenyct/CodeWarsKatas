@@ -315,5 +315,13 @@ namespace KataTesting
             string u = "bdfh";
             Assert.AreEqual(u,  CodeWarsKatas.Katas.demovingShift(CodeWarsKatas.Katas.movingShift(u, 1), 1));
         }
+
+        [Test]
+        public void SimpleNumbers()
+        {
+            Assert.AreEqual("1", CodeWarsKatas.Katas.Pattern(1));
+            Assert.AreEqual("21\n2", CodeWarsKatas.Katas.Pattern(2));
+            Assert.AreEqual("54321\n5432\n543\n54\n5", CodeWarsKatas.Katas.Pattern(5));
+        }
     }
 }
