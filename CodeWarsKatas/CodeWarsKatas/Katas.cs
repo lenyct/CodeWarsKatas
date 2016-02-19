@@ -295,5 +295,13 @@ namespace CodeWarsKatas
           }
           return day;          
       }
+
+      public static string Swap(string str)
+      {
+          var t = str.Select(n => char.IsUpper(n) ? char.ToLower(n) : char.ToUpper(n));
+          //foreach(char c in str)
+             // char
+          return t.ToString();
+      }
    }//end class  
 }

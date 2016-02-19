@@ -336,5 +336,43 @@ namespace KataTesting
         {
             Assert.AreEqual(22, CodeWarsKatas.Katas.evaporator(10, 10, 10));
         }
+
+        [Test]
+        public void BasicSwapTests()
+        {
+            Assert.AreEqual("hELLOwORLD", CodeWarsKatas.Katas.Swap("HelloWorld"));
+            Assert.AreEqual("cODEwARS", CodeWarsKatas.Katas.Swap("CodeWars"));
+        }
+
+        [Test]
+        public void _0_Test_codet_With_warsedocxyz()
+        {
+            Hangman hangman = new Hangman("codet");
+
+            Assert.AreEqual("_ _ _ _ _ # w", hangman.Guess('w'));
+            Assert.AreEqual("_ _ _ _ _ # wa", hangman.Guess('a'));
+            Assert.AreEqual("_ _ _ _ _ # war", hangman.Guess('r'));
+            Assert.AreEqual("_ _ _ _ _ # wars", hangman.Guess('s'));
+            Assert.AreEqual("_ _ _ e _ # wars", hangman.Guess('e'));
+            Assert.AreEqual("_ _ d e _ # wars", hangman.Guess('d'));
+            Assert.AreEqual("_ o d e _ # wars", hangman.Guess('o'));
+            Assert.AreEqual("c o d e _ # wars", hangman.Guess('c'));
+            Assert.AreEqual("c o d e _ # warsx", hangman.Guess('x'));
+            Assert.AreEqual("c o d e _ # warsxy", hangman.Guess('y'));
+            Assert.AreEqual("You got hung! The word was codet.", hangman.Guess('z'));
+        }
+
+        [Test]
+        public void _1_Test_wars_With_wusarg()
+        {            
+            Hangman hangman = new Hangman("wars");
+
+            Assert.AreEqual("w _ _ _", hangman.Guess('w'));
+            Assert.AreEqual("w _ _ _ # u", hangman.Guess('u'));
+            Assert.AreEqual("w _ _ s # u", hangman.Guess('s'));
+            Assert.AreEqual("w a _ s # u", hangman.Guess('a'));
+            Assert.AreEqual("You found the word! (wars)", hangman.Guess('r'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+        }
     }
 }
