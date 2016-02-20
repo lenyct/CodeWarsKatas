@@ -352,6 +352,7 @@ namespace KataTesting
             Assert.AreEqual("_ _ _ _ _ # w", hangman.Guess('w'));
             Assert.AreEqual("_ _ _ _ _ # wa", hangman.Guess('a'));
             Assert.AreEqual("_ _ _ _ _ # war", hangman.Guess('r'));
+            Assert.AreEqual("_ _ _ _ _ # war", hangman.Guess('r'));
             Assert.AreEqual("_ _ _ _ _ # wars", hangman.Guess('s'));
             Assert.AreEqual("_ _ _ e _ # wars", hangman.Guess('e'));
             Assert.AreEqual("_ _ d e _ # wars", hangman.Guess('d'));
@@ -373,6 +374,30 @@ namespace KataTesting
             Assert.AreEqual("w a _ s # u", hangman.Guess('a'));
             Assert.AreEqual("You found the word! (wars)", hangman.Guess('r'));
             Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+        }
+
+        [Test]
+        public void _5_AlmostHung_owl_With_aeiubcowl()
+        {
+            Hangman hangman = new Hangman("owl");
+
+            Assert.AreEqual("_ _ _ # a", hangman.Guess('a'));
+            Assert.AreEqual("_ _ _ # ae", hangman.Guess('e'));
+            Assert.AreEqual("_ _ _ # aei", hangman.Guess('i'));
+            Assert.AreEqual("_ _ _ # aeiu", hangman.Guess('u'));
+            Assert.AreEqual("_ _ _ # aeiub", hangman.Guess('b'));
+            Assert.AreEqual("_ _ _ # aeiubc", hangman.Guess('c'));
+            Assert.AreEqual("o _ _ # aeiubc", hangman.Guess('o'));
+            Assert.AreEqual("o w _ # aeiubc", hangman.Guess('w'));
+            Assert.AreEqual("You found the word! (owl)", hangman.Guess('l'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+            Assert.AreEqual("The game has ended.", hangman.Guess('g'));
+
         }
     }
 }
