@@ -399,5 +399,12 @@ namespace KataTesting
             Assert.AreEqual("The game has ended.", hangman.Guess('g'));
 
         }
+
+        [Test]
+        public void KataTests()
+        {
+            Assert.AreEqual("igPay atinlay siay oolcay", CodeWarsKatas.Katas.PigIt("Pig latin is cool"));
+            Assert.AreEqual("hisTay siay ymay tringsay", CodeWarsKatas.Katas.PigIt("This is my string"));
+        }
     }
 }

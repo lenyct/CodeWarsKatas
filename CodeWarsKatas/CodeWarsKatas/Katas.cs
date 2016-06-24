@@ -303,5 +303,10 @@ namespace CodeWarsKatas
              // char
           return t.ToString();
       }
-   }//end class  
+
+        public static int PigIt(string v)
+        {
+            
+        }
+    }//end class  
 }
