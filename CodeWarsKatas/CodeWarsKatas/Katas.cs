@@ -304,10 +304,16 @@ namespace CodeWarsKatas
           return t.ToString();
       }
 
-        public static string PigIt(string v)
+        public static string PigIt(string str)
         {
-            var q = Regex.Split(v, " ").Select(x=>x.Take(1).Select(t=> t.ToString()+String.Format("{0}ay",x))).ToString();
-            return q.ToString();
+            StringBuilder sb = new StringBuilder();
+            foreach(var t in Regex.Split(str, " "))
+            {
+               var g = t.Remove(0, 1);
+               sb.Append(g).Append(t[0]).Append("ay ");
+            }
+            var val = sb.ToString().TrimEnd();
+            return val;
         }
     }//end class  
 }
