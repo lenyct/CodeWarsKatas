@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using CodeWarsKatas.Classes;
+using CodeWarsKatas;
 
 namespace KataTesting
 {
@@ -405,6 +406,13 @@ namespace KataTesting
         {
             Assert.AreEqual("igPay atinlay siay oolcay", CodeWarsKatas.Katas.PigIt("Pig latin is cool"));
             Assert.AreEqual("hisTay siay ymay tringsay", CodeWarsKatas.Katas.PigIt("This is my string"));
+        }
+
+        [Test]
+        public void BasSqrtApproximationicTests()
+        {
+            Assert.AreEqual(2, Katas.SqrtApproximation(4), "Should work for integer roots.");
+            Assert.AreEqual(new int[] { 2, 3 }, Katas.SqrtApproximation(5), "Should work for range approximation.");
         }
     }
 }
