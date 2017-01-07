@@ -8,9 +8,10 @@ using System.Text.RegularExpressions;
 namespace CodeWarsKatas
 {
     public class Katas
-    {
-      // return masked string and only revel last four digits. current account example
-      public static string Mask(string cc)
+    {        
+        public int MyProperty { get; set; }
+                                           // return masked string and only revel last four digits. current account example
+        public static string Mask(string cc)
       {
           return cc.Length > 4 ? cc.Substring(cc.Length - 4).PadLeft(cc.Length, '#') : cc;
       }
@@ -26,7 +27,7 @@ namespace CodeWarsKatas
       }
 
       //Given a int[] that where each entry represents a child. ad its value represents the amount of candy they have,
-        //to give the same number of candy to each child how much more is needed so all children have the same
+      //to give the same number of candy to each child how much more is needed so all children have the same
       public static int GetMissingCandies(int[] candies)
       {        
          int max = candies.Max();
@@ -50,7 +51,7 @@ namespace CodeWarsKatas
       //Takes a String input, and returns the strings with first letter capped and rest lowercase
       public static string[] CapMe(string[] strings)
       {
-         return strings.Select(a => a.ToLower().Insert(0, a.ElementAt(0).ToString().ToUpper()).Remove(1,1)).ToArray();        
+         return strings.Select(a => a.ToLower().Insert(0, a.ElementAt(0).ToString().ToUpper()).Remove(1,1)).ToArray();       
       }
 
         //find shortest string, reverse longer, concat so that shorter + longerReversed + shorter
@@ -129,6 +130,7 @@ namespace CodeWarsKatas
 
       private static int RecursivePersistence(long n)
       {
+            
           var count = 1;
           var sum = n.ToString().ToList().Select(x => int.Parse(x.ToString())).Aggregate((a, x) => a * x);
 

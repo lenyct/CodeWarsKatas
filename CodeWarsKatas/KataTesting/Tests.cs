@@ -13,6 +13,34 @@ namespace KataTesting
     class Tests
     {
         [Test]
+        public void CheckEoghan()
+        {
+            Assert.AreNotEqual(false, Katas2.CheckEoghan("Paul"));
+            Assert.AreNotEqual(false, Katas2.CheckEoghan("Tony"));
+            Assert.AreNotEqual(false, Katas2.CheckEoghan("Shamdog"));
+            Assert.AreNotEqual(false, Katas2.CheckEoghan("Bilbo"));
+            Assert.AreNotEqual(true, Katas2.CheckEoghan("Eoghan"));
+        }
+
+        [Test]
+        public void IsSquareFalse()
+        {
+            Assert.AreEqual(false, Katas2.IsSquareRoot(2));
+            Assert.AreEqual(false, Katas2.IsSquareRoot(4));
+            Assert.AreEqual(false, Katas2.IsSquareRoot(8));
+            Assert.AreEqual(false, Katas2.IsSquareRoot(64));
+        }
+
+        [Test]
+        public void IsSquareTrue()
+        {
+            Assert.AreEqual(true, Katas2.IsSquareRoot(2));
+            Assert.AreEqual(true, Katas2.IsSquareRoot(4));
+            Assert.AreEqual(true, Katas2.IsSquareRoot(8));
+            Assert.AreEqual(true, Katas2.IsSquareRoot(64));
+        }
+
+        [Test]
         public void MaskingTest()
         {
             Assert.AreEqual(CodeWarsKatas.Katas.Mask("4556364607935616"), "############5616");
@@ -314,13 +342,13 @@ namespace KataTesting
         public void CaesarCipher3()
         {
             string u = "bdfh";
-            Assert.AreEqual(u,  CodeWarsKatas.Katas.demovingShift(CodeWarsKatas.Katas.movingShift(u, 1), 1));
+            Assert.AreEqual(u, Katas.demovingShift(CodeWarsKatas.Katas.movingShift(u, 1), 1));
         }
 
         [Test]
         public void SimpleNumbers()
         {
-            Assert.AreEqual("1", CodeWarsKatas.Katas.Pattern(1));
+            Assert.AreEqual("1", Katas.Pattern(1));
             Assert.AreEqual("21\n2", CodeWarsKatas.Katas.Pattern(2));
             Assert.AreEqual("54321\n5432\n543\n54\n5", CodeWarsKatas.Katas.Pattern(5));
         }

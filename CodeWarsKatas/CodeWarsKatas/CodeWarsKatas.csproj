@@ -44,6 +44,7 @@
     <Compile Include="Classes\Block.cs" />
     <Compile Include="Classes\Hangman.cs" />
     <Compile Include="Katas.cs" />
+    <Compile Include="Katas2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
