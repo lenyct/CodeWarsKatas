@@ -11,35 +11,7 @@ namespace KataTesting
 {
     [TestFixture]
     class Tests
-    {
-        [Test]
-        public void CheckEoghan()
-        {
-            Assert.AreNotEqual(false, Katas2.CheckEoghan("Paul"));
-            Assert.AreNotEqual(false, Katas2.CheckEoghan("Tony"));
-            Assert.AreNotEqual(false, Katas2.CheckEoghan("Shamdog"));
-            Assert.AreNotEqual(false, Katas2.CheckEoghan("Bilbo"));
-            Assert.AreNotEqual(true, Katas2.CheckEoghan("Eoghan"));
-        }
-
-        [Test]
-        public void IsSquareFalse()
-        {
-            Assert.AreEqual(false, Katas2.IsSquareRoot(2));
-            Assert.AreEqual(false, Katas2.IsSquareRoot(4));
-            Assert.AreEqual(false, Katas2.IsSquareRoot(8));
-            Assert.AreEqual(false, Katas2.IsSquareRoot(64));
-        }
-
-        [Test]
-        public void IsSquareTrue()
-        {
-            Assert.AreEqual(true, Katas2.IsSquareRoot(2));
-            Assert.AreEqual(true, Katas2.IsSquareRoot(4));
-            Assert.AreEqual(true, Katas2.IsSquareRoot(8));
-            Assert.AreEqual(true, Katas2.IsSquareRoot(64));
-        }
-
+    {        
         [Test]
         public void MaskingTest()
         {
