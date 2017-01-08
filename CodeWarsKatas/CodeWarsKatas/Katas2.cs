@@ -60,5 +60,74 @@ namespace CodeWarsKatas
 
 
         }
+
+        //Write a function called validBraces that takes a string of braces, and determines if the order of the 
+        //braces is valid.validBraces should return true if the string is valid, and false if it's invalid.
+        public static bool ValidBraces(String braces)
+        {
+            
+            Stack<char> s = new Stack<char>();
+            List<char> opening = new  List<char>{ '(', '{', '[' };
+            foreach(var c in braces.ToCharArray())
+            {       
+                if (opening.Contains(c))
+                {
+                    s.Push(c);
+                }
+                else
+                {
+                    if (s.Count.Equals(0))
+                        return false;
+                    var z = s.Pop();
+                    switch (c)
+                    {
+                        case ')':
+                            {
+                                if (!z.Equals('('))
+                                    return false;
+                                break;
+                            }
+                        case '}':
+                            {
+                                if (!z.Equals('{'))
+                                    return false;
+                                break;
+                            }
+                        case ']':
+                            {
+                                if (!z.Equals('['))
+                                    return false;
+                                break;
+                            }
+                    }
+                }
+                
+            }
+            return s.Count!= 0;
+        }
+
+        public static bool validBracesNice(string braces)
+        {
+            var st = new Stack<char>();
+            foreach (var c in braces)
+                switch (c)
+                {
+                    case '(':
+                    case '[':
+                    case '{':
+                        st.Push(c);
+                        continue;
+                    case ')':
+                        if (st.Count == 0 || st.Pop() != '(') return false;
+                        continue;
+                    case ']':
+                        if (st.Count == 0 || st.Pop() != '[') return false;
+                        continue;
+                    case '}':
+                        if (st.Count == 0 || st.Pop() != '{') return false;
+                        continue;
+                }
+            return st.Count == 0;
+        }
     }
 }
