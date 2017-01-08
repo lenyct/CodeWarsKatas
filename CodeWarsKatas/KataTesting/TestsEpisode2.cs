@@ -73,6 +73,13 @@ namespace KataTesting
 
             Assert.AreEqual(false, Katas2.ValidBraces("[(])"));
         }
+
+        [Test]
+        public void Given123And456Returns579()
+        {
+            Assert.AreEqual("579", Katas2.sumStrings("123", "456"));
+            Assert.AreEqual("579", Katas2.sumStrings("123 ", "4 56"));
+        }
     }
 
 }

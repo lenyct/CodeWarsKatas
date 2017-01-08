@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace CodeWarsKatas
 {
     public static class Katas2
-    {
+    {        
         //For a given string s find the character c with longest consecutive repetition and return a tuple(c, l) (in Haskell
         //Just(Char, Int), in C# Tuple<char?, int>) where l is the length of the repetition. If there are two or more 
         //characters with the same l return the first.
@@ -65,49 +66,6 @@ namespace CodeWarsKatas
         //braces is valid.validBraces should return true if the string is valid, and false if it's invalid.
         public static bool ValidBraces(String braces)
         {
-            
-            Stack<char> s = new Stack<char>();
-            List<char> opening = new  List<char>{ '(', '{', '[' };
-            foreach(var c in braces.ToCharArray())
-            {       
-                if (opening.Contains(c))
-                {
-                    s.Push(c);
-                }
-                else
-                {
-                    if (s.Count.Equals(0))
-                        return false;
-                    var z = s.Pop();
-                    switch (c)
-                    {
-                        case ')':
-                            {
-                                if (!z.Equals('('))
-                                    return false;
-                                break;
-                            }
-                        case '}':
-                            {
-                                if (!z.Equals('{'))
-                                    return false;
-                                break;
-                            }
-                        case ']':
-                            {
-                                if (!z.Equals('['))
-                                    return false;
-                                break;
-                            }
-                    }
-                }
-                
-            }
-            return s.Count!= 0;
-        }
-
-        public static bool validBracesNice(string braces)
-        {
             var st = new Stack<char>();
             foreach (var c in braces)
                 switch (c)
@@ -128,6 +86,16 @@ namespace CodeWarsKatas
                         continue;
                 }
             return st.Count == 0;
+        }        
+
+        public static string sumStrings(string a, string b)
+        {
+             BigInteger number1;
+            BigInteger number2;
+
+            BigInteger.TryParse(a, out number1);
+            BigInteger.TryParse(b, out number2);
+            return (number1 + number2).ToString();
         }
     }
 }
