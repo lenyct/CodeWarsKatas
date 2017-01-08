@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace CodeWarsKatas
 {
@@ -43,6 +44,21 @@ namespace CodeWarsKatas
                 .OrderByDescending(y => y.Count())
                 .First().ToList();
             return new Tuple<char?, int>(l.First(), l.Count);
+        }
+        //You have to create a function that takes a positive integer number and returns the next bigger number formed by thw
+        //same digits:
+        public static string Factorial(int n)
+        {             
+            if (n < 0) return "";
+            BigInteger result = n == 1 || n==0 ? 1 : n * (n-1);
+            
+            for (long i=n-1;i>1; i--)
+            {
+                result = result*(i-1);
+            }
+            return result.ToString();
+
+
         }
     }
 }

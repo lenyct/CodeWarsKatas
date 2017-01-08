@@ -44,6 +44,17 @@ namespace KataTesting
         {
             Assert.AreEqual(new Tuple<char?, int>(null, 0), Katas2.LongestRepetition(""));
         }
+
+
+        [Test]
+        public void FactorialTests()
+        {
+            Assert.AreEqual("1", Katas2.Factorial(1));
+            Assert.AreEqual("120", Katas2.Factorial(5));
+            Assert.AreEqual("362880", Katas2.Factorial(9));
+            Assert.AreEqual("1307674368000", Katas2.Factorial(15));
+            Assert.AreEqual("13462012475717524605876073858941615558355851148193967190051391468057460367090535696797920946629681836680869097041958983702264048370902871114013579941370766400374327741701139895604871545254810788060989321379840000000000000000000000000000000000", Katas2.Factorial(140));
+        }
     }
 
 }
