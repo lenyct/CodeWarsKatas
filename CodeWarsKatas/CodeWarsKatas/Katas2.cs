@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeWarsKatas
 {
@@ -15,31 +12,37 @@ namespace CodeWarsKatas
         //For empty string return ('', 0) (in Haskell Nothing, in C# Tuple<char, int>(null, 0)).
         public static Tuple<char?, int> LongestRepetition(string input)
         {
-            if(input.Length > 0)
-            {
-                var order = input.OrderBy(c => c).ToList();
-                Dictionary<char, int> t = new Dictionary<char, int>();
+            if (string.IsNullOrEmpty(input)) return new Tuple<char?, int>(null, 0);
 
-                foreach (var key in order)
+            var capacity =input.Length;
+                input  += " ";
+                int[] output = new int[capacity];
+                var curNum = 0;
+                for(int i=0; i <= capacity-1; i++)
                 {
-                    if (t.ContainsKey(key))
+
+                    if (input[i] == input[i + 1])
+                    {                        
+                        output[curNum] += 1;                          
+                    }else
                     {
-                        t[key] += 1;
-                    }
-                    else
-                    {
-                        t.Add(key, 1);
-                    }
+                        output[curNum] += 1;
+                        curNum = i+1;
+                    }                    
                 }
+                var max = output.Max();
+                var maxPosition = output.ToList().IndexOf(max);
+                return new Tuple<char?, int>(input[maxPosition], max );
+        }
 
-                
-                var maxKey = t.FirstOrDefault(MaxGuid => MaxGuid.Value == t.Values.Max());
+        public static Tuple<char?, int> LongestRepetitionLinq(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return new Tuple<char?, int>(null, 0);
 
-                return new Tuple<char?, int>(maxKey.Key, maxKey.Value);
-            }
-            return new Tuple<char?, int>(null, 0);
-
-
+            List<char> l = input.Select((c, index) => input.Substring(index).TakeWhile(x => x == c))
+                .OrderByDescending(y => y.Count())
+                .First().ToList();
+            return new Tuple<char?, int>(l.First(), l.Count);
         }
     }
 }

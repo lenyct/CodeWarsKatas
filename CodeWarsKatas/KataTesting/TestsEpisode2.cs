@@ -16,7 +16,7 @@ namespace KataTesting
         [Test]
         public void LongestAtTheBeginning()
         {
-            Assert.AreEqual(new Tuple<char?, int>('a', 4), Katas2.LongestRepetition("aaaabb"));
+            Assert.AreEqual(new Tuple<char?, int>('a', 4), Katas2.LongestRepetitionLinq("aaaabb"));
             Assert.AreEqual(new Tuple<char?, int>('b', 5), Katas2.LongestRepetition("abbbbb"));
         }
 

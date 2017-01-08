@@ -9,9 +9,8 @@ namespace CodeWarsKatas
 {
     public class Katas
     {        
-        public int MyProperty { get; set; }
-                                           // return masked string and only revel last four digits. current account example
-        public static string Mask(string cc)
+      // return masked string and only revel last four digits. current account example
+      public static string Mask(string cc)
       {
           return cc.Length > 4 ? cc.Substring(cc.Length - 4).PadLeft(cc.Length, '#') : cc;
       }
