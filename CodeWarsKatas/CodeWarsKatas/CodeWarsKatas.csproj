@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Classes\Block.cs" />
     <Compile Include="Classes\Hangman.cs" />
-    <Compile Include="Geneva.cs" />
     <Compile Include="Katas.cs" />
     <Compile Include="Katas2.cs" />
     <Compile Include="Program.cs" />

@@ -26,7 +26,7 @@ namespace Geneva
         /// <param name="position">Position.</param>
         public Grasshopper(int n, int position)
         {
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i <= n; i++)
                 row.Add(new leaf(i));
             row.ElementAt(position).HopperOnLeaf = true;
         }
