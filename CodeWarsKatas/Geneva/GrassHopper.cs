@@ -38,8 +38,7 @@ namespace Geneva
         {
             var t = visitLeaf();
 
-            var newleaf = row.Select(x => x).Where(y => y.Index <= t).OrderByDescending(c=>c.Index).Skip(2).First(x => x.Ate ==false);
-           // row.RemoveAll(x => x.Ate == true);
+            var newleaf = row.Select(x => x).Where(y => y.Index <= t).OrderByDescending(c=>c.Index).Skip(2).First(x => x.Ate ==false);          
             newleaf.HopperOnLeaf = true;
 
         }
@@ -51,8 +50,7 @@ namespace Geneva
         {
             int t = visitLeaf();
 
-            var newleaf = row.Select(x => x).Where(y => y.Index >= t).Skip(2).First(x => x.Ate == false);
-            //row.RemoveAll(x => x.Ate == true);
+            var newleaf = row.Select(x => x).Where(y => y.Index >= t).Skip(2).First(x => x.Ate == false);            
             newleaf.HopperOnLeaf = true;
         }
 

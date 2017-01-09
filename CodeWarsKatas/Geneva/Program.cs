@@ -49,7 +49,7 @@ public class Program
             //Console.WriteLine(g.WhereAmI());
 
 
-        Grasshopper g = new Grasshopper(10, 6);
+        Grasshopper g = new Grasshopper(5, 5);
         Console.WriteLine(g.WhereAmI());
 
         g.EatAndHopLeft();
