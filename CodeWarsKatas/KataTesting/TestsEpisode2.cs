@@ -44,6 +44,39 @@ namespace KataTesting
         {
             Assert.AreEqual(new Tuple<char?, int>(null, 0), Katas2.LongestRepetition(""));
         }
+
+        [Test]
+        public void BasicStringReverseTests()
+        {
+            Assert.AreEqual(string.Empty, Katas2.Reverse(string.Empty));
+            Assert.AreEqual("World  Hello", Katas2.Reverse("Hello  World"));
+            Assert.AreEqual("World Hello", Katas2.Reverse("Hello World"));
+            Assert.AreEqual("There. Hi", Katas2.Reverse("Hi There."));
+
+            Assert.AreEqual("this at expert an am I", Katas2.Reverse("I am an expert at this"));
+        }
+
+        [Test]
+        public static void ScrambledTest()
+        {
+            Assert.AreEqual(Katas2.Scramble("rkqodlw", "world"), true);
+            Assert.AreEqual(Katas2.Scramble("cedewaraaossoqqyt", "codewars"), true);
+            Assert.AreEqual(Katas2.Scramble("katas", "steak"), false);
+            Assert.AreEqual(Katas2.Scramble("scriptjavx", "javascript"), false);
+            Assert.AreEqual(Katas2.Scramble("scriptingjava", "javascript"), true);
+            Assert.AreEqual(Katas2.Scramble("scriptsjava", "javascripts"), true);
+            Assert.AreEqual(Katas2.Scramble("javscripts", "javascript"), false);
+            Assert.AreEqual(Katas2.Scramble("aabbcamaomsccdd", "commas"), true);
+            Assert.AreEqual(Katas2.Scramble("commas", "commas"), true);
+            Assert.AreEqual(Katas2.Scramble("sammoc", "commas"), true);
+        }
+
+        [Test]
+        public void PaulCipherTest()
+        {
+            Assert.AreEqual("HM1QA", Katas2.Encode("He1lo"));
+            Assert.AreEqual("HE1LO", Katas2.Decode("HM1QA"));
+        }
     }
 
 }
