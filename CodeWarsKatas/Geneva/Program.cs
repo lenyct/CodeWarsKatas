@@ -58,7 +58,7 @@ public class Program
         g.EatAndHopLeft();
         Console.WriteLine(g.WhereAmI());
 
-        g.EatAndHopLeft();
+        g.EatAndHopRight();
         Console.WriteLine(g.WhereAmI());
         //    }
         //}
