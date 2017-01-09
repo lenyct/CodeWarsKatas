@@ -26,7 +26,7 @@ namespace Geneva
         /// <param name="position">Position.</param>
         public Grasshopper(int n, int position)
         {
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i <=  n; i++)
                 row.Add(new leaf(i));
             row.ElementAt(position).HopperOnLeaf = true;
         }
@@ -41,7 +41,7 @@ namespace Geneva
             leaf.HopperOnLeaf = false;
             var t = leaf.Index;
 
-            var newleaf = row.Select(x => x).Where(y => y.Index <= t).Skip(2).First(x => x.Ate ==false);
+            var newleaf = row.Select(x => x).Where(y => y.Index <= t).OrderByDescending(c=>c.Index).Skip(2).First(x => x.Ate ==false);
            // row.RemoveAll(x => x.Ate == true);
             newleaf.HopperOnLeaf = true;
 

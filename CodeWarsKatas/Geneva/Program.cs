@@ -52,10 +52,13 @@ public class Program
         Grasshopper g = new Grasshopper(10, 6);
         Console.WriteLine(g.WhereAmI());
 
-        g.EatAndHopRight();
+        g.EatAndHopLeft();
         Console.WriteLine(g.WhereAmI());
 
-        g.EatAndHopRight();
+        g.EatAndHopLeft();
+        Console.WriteLine(g.WhereAmI());
+
+        g.EatAndHopLeft();
         Console.WriteLine(g.WhereAmI());
         //    }
         //}
