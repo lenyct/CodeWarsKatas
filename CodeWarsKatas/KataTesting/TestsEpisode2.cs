@@ -70,7 +70,24 @@ namespace KataTesting
             Assert.AreEqual(Katas2.Scramble("commas", "commas"), true);
             Assert.AreEqual(Katas2.Scramble("sammoc", "commas"), true);
         }
-        
+
+        [Test]
+        public void TicTacTest()
+        {
+            int[,] board=  new int[,] { { 1, 1, 1 }, { 0, 2, 2 }, { 0, 0, 0 } };
+            Assert.AreEqual(1, Katas2.IsSolved(board));
+        }
+
+        [Test]
+        public void TicTacTest2()
+        {
+            int[,] board = new int[,] { 
+                { 0, 1, 1 }, 
+                { 2, 0, 2 }, 
+                { 2, 1, 0 } };
+                 Assert.AreEqual(-1, Katas2.IsSolved(board));
+        }
+
     }
 
 }

@@ -161,36 +161,72 @@ namespace CodeWarsKatas
             return str2.All(x => str1.Count(y => y == x) >= str2.Count(y => y == x));
         }
 
-        //1.  All alpha characters will be treated as upper case
-        //2.  The first alpha character will not change(except for switching to upper case).
-        //3.  All subsequent alpha characters will be shifted toward 'Z' by the
-        //    alphabetical position of the previous alpha character.
-        //    (wrap back to 'A' if 'Z' is passed)
-        //H -> H(first alpha character does not change)
-        //e -> M(H is the previous alpha character, and is the 8th letter in the alphabet.  E + 8 = M)
-        //1 -> 1 (non alpha characters do not change)
-        //l -> Q(E is the previous alpha character, and is the 5th letter in the alphabet.  L + 5 = Q)
-        //o -> A(L is the previous alpha character, and is the 12th letter in the alphabet.  O + 12 = A)
-        public static string Encode(string input)
+        public static int IsSolved(int[,] board)
         {
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb2 = new StringBuilder();
-            input.ToCharArray().Skip(1).Select(c => sb2.Append((char)(c - 64)));
 
-            foreach (char c in input)
-            {
-                char t = (char)(c - 64);
-                sb.Append(t);
-            }
-            var test = sb.ToString();
-            var test2 = sb2.ToString();
+            var t = playerWin(1, board);
+            var t2 = playerWin(2, board);
+
+            if (t > t2)
+                return 1;
+            else if (t2 > t)
+                return 2;
+            else
+                return -1;
 
 
-            return sb.ToString();
         }
-        public static string Decode(string input)
+
+        private static int playerWin(int player, int[,] board)
         {
-            return string.Empty;
+            List<int[,]> wins = new List<int[,]>();
+
+            //down wins
+            if ((player + board[0, 0])
+                + player + board[1, 0]
+                + player + board[2, 0] == ((player * 3) * 2))
+                return player;
+
+            if ((player + board[0, 1])
+                 + player + board[1, 1]
+                 + player + board[2, 1] == ((player * 3) * 2))
+                return player;
+
+            if ((player + board[0, 2])
+                 + player + board[1, 2]
+                 + player + board[2, 2] == ((player * 3) * 2))
+                return player;
+            //across wins
+            if ((player + board[0, 0])
+                 + player + board[0, 1]
+                 + player + board[0, 2] == ((player*3)*2) )
+                return player;
+
+
+            if ((player + board[1, 0]) 
+                  + player + board[1, 1]
+                  + player + board[1, 2] == ((player * 3) * 2))
+                return player;
+
+            if ((player + board[2, 0])
+                 + player + board[2, 1]
+                 + player + board[2, 2] == ((player * 3) * 2))
+                return player;
+
+            //Cross wins
+            if ((player + board[0, 2])
+                 + player + board[1, 1]
+                 + player + board[2, 0] == ((player * 3) * 2))
+                return player;
+
+            if ((player + board[0, 0])
+                 + player + board[1, 1]
+                 + player + board[2, 2] == ((player * 3) * 2))
+                return player;
+
+            return -1;
+
+
         }
     }
 }
