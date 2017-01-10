@@ -27,8 +27,8 @@ namespace Geneva
                 throw new ArgumentException();
 
             w.Dispose();
-            workers[id].Dispose();
-
+            workers.Remove(id);
+            
         }
     }
 }

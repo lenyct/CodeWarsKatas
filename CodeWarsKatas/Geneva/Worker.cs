@@ -24,16 +24,7 @@ public class Worker : IDisposable
 
     public void Dispose()
     {
-        
-        this.Dispose(true);
+        this.tasks = null;        
         GC.SuppressFinalize(this);
-    }
-    protected virtual void Dispose(bool disposing)
-    {
-        if (disposing)
-        {
-            this.Dispose();
-        }
-        // free native resources if there are any.
-    }
+    }    
 }
