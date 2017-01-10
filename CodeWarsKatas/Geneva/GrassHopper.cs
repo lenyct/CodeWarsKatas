@@ -36,9 +36,9 @@ namespace Geneva
         /// </summary>
         public void EatAndHopLeft()
         {
-            var t = visitLeaf();
+            var leafIndex = visitLeaf();
 
-            var newleaf = row.Select(x => x).Where(y => y.Index <= t).OrderByDescending(c=>c.Index).Skip(2).First(x => x.Ate ==false);          
+            var newleaf = row.Select(x => x).Where(y => y.Index <= leafIndex).OrderByDescending(c=>c.Index).Skip(2).First(x => x.Ate ==false);          
             newleaf.HopperOnLeaf = true;
 
         }
@@ -48,25 +48,25 @@ namespace Geneva
         /// </summary>
         public void EatAndHopRight()
         {
-            int t = visitLeaf();
+            int leafIndex = visitLeaf();
 
-            var newleaf = row.Select(x => x).Where(y => y.Index >= t).Skip(2).First(x => x.Ate == false);            
+            var newleaf = row.Select(x => x).Where(y => y.Index >= leafIndex).Skip(2).First(x => x.Ate == false);            
             newleaf.HopperOnLeaf = true;
         }
 
         private int visitLeaf()
         {
-            var leaf = row.ElementAt(WhereAmI());
+            var leaf = row.Where(y => y.HopperOnLeaf == true).First();
             leaf.Ate = true;
             leaf.HopperOnLeaf = false;
-            var t = leaf.Index;
-            return t;
+            var leafIndex = leaf.Index;
+            return leafIndex;
         }
 
         /// <returns>Leaf number that grasshopper is feeding on right now.</returns>        
         public int WhereAmI()
         {
-            return row.Where(y => y.HopperOnLeaf == true).First().Index;
+            return row.IndexOf(row.Where(y => y.HopperOnLeaf == true).First());
         }
 
     }
