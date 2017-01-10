@@ -173,7 +173,20 @@ namespace CodeWarsKatas
         //o -> A(L is the previous alpha character, and is the 12th letter in the alphabet.  O + 12 = A)
         public static string Encode(string input)
         {
-            return string.Empty;
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            input.ToCharArray().Skip(1).Select(c => sb2.Append((char)(c - 64)));
+
+            foreach (char c in input)
+            {
+                char t = (char)(c - 64);
+                sb.Append(t);
+            }
+            var test = sb.ToString();
+            var test2 = sb2.ToString();
+
+
+            return sb.ToString();
         }
         public static string Decode(string input)
         {

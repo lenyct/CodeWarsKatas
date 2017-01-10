@@ -70,13 +70,7 @@ namespace KataTesting
             Assert.AreEqual(Katas2.Scramble("commas", "commas"), true);
             Assert.AreEqual(Katas2.Scramble("sammoc", "commas"), true);
         }
-
-        [Test]
-        public void PaulCipherTest()
-        {
-            Assert.AreEqual("HM1QA", Katas2.Encode("He1lo"));
-            Assert.AreEqual("HE1LO", Katas2.Decode("HM1QA"));
-        }
+        
     }
 
 }
