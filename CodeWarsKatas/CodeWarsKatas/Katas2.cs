@@ -274,20 +274,44 @@ namespace CodeWarsKatas
         public static string Mix(string s1, string s2)
         {
             var dict1 = s1.Where(c => char.IsLower(c) && char.IsLetter(c))
-                .Distinct().ToDictionary(a => a, b => s1.Count(x => x == b));
+                .Distinct().ToDictionary(a => a, b => s1.Count(x => x == b)).OrderByDescending(x => x.Value).ToDictionary(x => x.Key, y => y.Value); ;
             var dict2 = s2.Where(c => char.IsLower(c) && char.IsLetter(c))
-                .Distinct().ToDictionary(a => a, b => s2.Count(x => x == b));
+                .Distinct().ToDictionary(a => a, b => s2.Count(x => x == b)).OrderByDescending(x => x.Value).ToDictionary(x => x.Key, y => y.Value);
 
             var biggest = dict1.Count() > dict2.Count() ? dict1 : dict2;
             var smallest = dict1.Count() < dict2.Count() ? dict1 : dict2;
-                        
-            //StringBuilder sb = new StringBuilder();
-            //foreach (var c in biggest)
-            //{
-            //    if(biggest[c.Key] > smallest[c.Key])
 
-            //}
-            return string.Empty;
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var c in biggest)
+            {               
+                int smallestStringCount;                                
+                if(smallest.TryGetValue(c.Key ,out smallestStringCount)){
+                    if (biggest[c.Key] > smallest[c.Key] && biggest[c.Key] > 1 && smallest[c.Key] >1)
+                    {
+                        sb.Append("2:");
+                        for (int i = 0; i < c.Value; i++)
+                            sb.Append(c.Key);
+                        sb.Append("/");
+                    }
+                    else if(biggest[c.Key] < smallest[c.Key] && biggest[c.Key] > 1 && smallest[c.Key] > 1)
+                    {
+                        sb.Append("1:");
+                        for (int i = 0; i < c.Value; i++)
+                            sb.Append(c.Key);
+                        sb.Append("/");
+                    }
+                    else if(biggest[c.Key] == smallest[c.Key] && biggest[c.Key] > 1 && smallest[c.Key] > 1)
+                    {
+                        sb.Append("=:");
+                        for (int i = 0; i < c.Value; i++)
+                            sb.Append(c.Key);
+                        sb.Append("/");
+                    }
+                }                
+            }
+            var t1 = sb.Remove(sb.Length-1,1).ToString();
+            return t1;
 
         }
     }
