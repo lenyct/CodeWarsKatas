@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace CodeWarsKatas
 {
@@ -268,6 +269,15 @@ namespace CodeWarsKatas
             var s = sb.ToString();
             
            return s.Contains("111") ? 1 : s.Contains("222") ? 2 : !s.Contains("0") ? 0 : -1;            
+        }
+
+        public static string Mix(string s1, string s2)
+        {
+            var dict1 = s1.Where(c=> char.IsLower(c) && c!= ' ').Distinct().ToDictionary(a => a, b=> s1.Count(x=> x == b));
+            var dict2 = s2.Where(c => char.IsLower(c) && c != ' ').Distinct().ToDictionary(a => a, b => s2.Count(x => x == b));
+
+            return string.Empty;
+
         }
     }
 }
