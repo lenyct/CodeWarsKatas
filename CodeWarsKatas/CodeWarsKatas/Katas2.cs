@@ -161,34 +161,26 @@ namespace CodeWarsKatas
             return str2.All(x => str1.Count(y => y == x) >= str2.Count(y => y == x));
         }
 
-        public static int IsSolved(int[,] board)
-        {
+        //public static int IsSolved(int[,] board)
+        //{
 
-            var p1 = playerWin(1, board);
-            var p2 = playerWin(2, board);
-
-            if (p1 > p2)
-                return 1;
-            else if (p2 > p1)
-                return 2;
-            else if(DrawGame(board))
-                return 0;
-            else
-                return -1;
+        //    var p1 = playerWin(1, board);
+        //    return p1 == 1 ? 1 : p1 == 0 ? 0 : playerWin(2,board);  
+            
 
 
-        }
+        //}
 
         private static bool DrawGame(int[,] board)
         {
           foreach(var c in board)
             {
-                if (c != 0)
+                if (c == 0)
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
 
         private static int playerWin(int player, int[,] board)
@@ -239,9 +231,43 @@ namespace CodeWarsKatas
                 player == board[2, 2])
                 return player;
 
-            return -1;
+            return DrawGame(board) ? 0 : -1;
 
 
+        }
+
+        //stolen from codewars
+        public static int IsSolvedNice(int[,] b)
+        {
+            var c012 = new int[] { 0, 1, 2 };
+            var s = string.Join(",", c012.Select(x => string.Join("", c012.Select(y => b[x, y])))) + ","
+                 + string.Join(",", c012.Select(x => string.Join("", c012.Select(y => b[y, x])))) + ","
+                 + string.Join("", c012.Select(x => b[x, x])) + ","
+                 + string.Join("", c012.Select(x => b[2 - x, x]));
+            return s.Contains("111") ? 1 : s.Contains("222") ? 2 : !s.Contains("0") ? 0 : -1;
+        }
+
+        //stole concept above and eliminated this string.join balls they implemented
+        public static int IsSolved(int[,] board)
+        {
+            StringBuilder sb = new StringBuilder();
+            int count = 0;
+            foreach(var c in board)
+            {
+                if (count++ % 3 == 0)
+                    sb.Append(',');
+                sb.Append(c.ToString());
+            }
+            //check diagonal wins
+            //c#6
+            sb.Append(string.Format($",{board[0, 0]}{board[1, 1]}{board[2, 2]},"));
+            sb.Append(string.Format($"{board[0, 2]}{board[1, 1]}{board[2, 0]}"));
+            //c# 4.5
+            //sb.Append(string.Format(",{0}{1}{2},",board[0, 0], board[1, 1], board[2, 2]));
+            //sb.Append(string.Format("{0}{1}{2}", board[0, 2], board[1, 1], board[2, 0]));
+            var s = sb.ToString();
+            
+           return s.Contains("111") ? 1 : s.Contains("222") ? 2 : !s.Contains("0") ? 0 : -1;            
         }
     }
 }
