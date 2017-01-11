@@ -88,6 +88,17 @@ namespace KataTesting
                  Assert.AreEqual(-1, Katas2.IsSolved(board));
         }
 
+        [Test]
+        public void TicTacTest3()
+        {
+            int[,] board = new int[,]
+            {
+               {2 ,1, 2 },
+               {2, 1, 1 },
+               {1, 2, 1 }
+            };
+            Assert.AreEqual(0, Katas2.IsSolved(board));
+        }
     }
 
 }

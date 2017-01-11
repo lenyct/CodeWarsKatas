@@ -164,17 +164,31 @@ namespace CodeWarsKatas
         public static int IsSolved(int[,] board)
         {
 
-            var t = playerWin(1, board);
-            var t2 = playerWin(2, board);
+            var p1 = playerWin(1, board);
+            var p2 = playerWin(2, board);
 
-            if (t > t2)
+            if (p1 > p2)
                 return 1;
-            else if (t2 > t)
+            else if (p2 > p1)
                 return 2;
+            else if(DrawGame(board))
+                return 0;
             else
                 return -1;
 
 
+        }
+
+        private static bool DrawGame(int[,] board)
+        {
+          foreach(var c in board)
+            {
+                if (c != 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private static int playerWin(int player, int[,] board)
@@ -182,46 +196,47 @@ namespace CodeWarsKatas
             List<int[,]> wins = new List<int[,]>();
 
             //down wins
-            if ((player + board[0, 0])
-                + player + board[1, 0]
-                + player + board[2, 0] == ((player * 3) * 2))
+            if (player == board[0, 0] &&
+                player == board[1, 0] &&
+                player == board[2, 0] )
                 return player;
 
-            if ((player + board[0, 1])
-                 + player + board[1, 1]
-                 + player + board[2, 1] == ((player * 3) * 2))
+            if (player == board[0, 1] &&
+                player == board[1, 1] &&
+                player == board[2, 1])
                 return player;
 
-            if ((player + board[0, 2])
-                 + player + board[1, 2]
-                 + player + board[2, 2] == ((player * 3) * 2))
+            if (player == board[0, 2] &&
+                player == board[1, 2] &&
+                player == board[2, 2])
                 return player;
+
             //across wins
-            if ((player + board[0, 0])
-                 + player + board[0, 1]
-                 + player + board[0, 2] == ((player*3)*2) )
+            if (player == board[0, 0] &&
+                player == board[0, 1] &&
+                player == board[0, 2])
                 return player;
 
 
-            if ((player + board[1, 0]) 
-                  + player + board[1, 1]
-                  + player + board[1, 2] == ((player * 3) * 2))
+            if (player == board[1, 0] &&
+                player == board[1, 1] &&
+                player == board[1, 2])
                 return player;
 
-            if ((player + board[2, 0])
-                 + player + board[2, 1]
-                 + player + board[2, 2] == ((player * 3) * 2))
+            if (player == board[2, 0] &&
+                player == board[2, 1] &&
+                player == board[2, 2])
                 return player;
 
             //Cross wins
-            if ((player + board[0, 2])
-                 + player + board[1, 1]
-                 + player + board[2, 0] == ((player * 3) * 2))
+            if (player == board[0, 2] &&
+                player == board[1, 1] &&
+                player == board[2, 0]) 
                 return player;
 
-            if ((player + board[0, 0])
-                 + player + board[1, 1]
-                 + player + board[2, 2] == ((player * 3) * 2))
+            if (player == board[0, 0] &&
+                player == board[1, 1] &&
+                player == board[2, 2])
                 return player;
 
             return -1;
