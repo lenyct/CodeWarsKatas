@@ -91,7 +91,7 @@ namespace CodeWarsKatas
 
         public static string sumStrings(string a, string b)
         {
-             BigInteger number1;
+            BigInteger number1;
             BigInteger number2;
 
             BigInteger.TryParse(a, out number1);
@@ -273,9 +273,20 @@ namespace CodeWarsKatas
 
         public static string Mix(string s1, string s2)
         {
-            var dict1 = s1.Where(c=> char.IsLower(c) && c!= ' ').Distinct().ToDictionary(a => a, b=> s1.Count(x=> x == b));
-            var dict2 = s2.Where(c => char.IsLower(c) && c != ' ').Distinct().ToDictionary(a => a, b => s2.Count(x => x == b));
+            var dict1 = s1.Where(c => char.IsLower(c) && char.IsLetter(c))
+                .Distinct().ToDictionary(a => a, b => s1.Count(x => x == b));
+            var dict2 = s2.Where(c => char.IsLower(c) && char.IsLetter(c))
+                .Distinct().ToDictionary(a => a, b => s2.Count(x => x == b));
 
+            var biggest = dict1.Count() > dict2.Count() ? dict1 : dict2;
+            var smallest = dict1.Count() < dict2.Count() ? dict1 : dict2;
+                        
+            //StringBuilder sb = new StringBuilder();
+            //foreach (var c in biggest)
+            //{
+            //    if(biggest[c.Key] > smallest[c.Key])
+
+            //}
             return string.Empty;
 
         }
