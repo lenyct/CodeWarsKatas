@@ -1,1 +1,3 @@
 https://www.codewars.com/kata/5629db57620258aa9d000014/train/csharp
+
+https://www.codewars.com/kata/52423db9add6f6fc39000354/train/csharp

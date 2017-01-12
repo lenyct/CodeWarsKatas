@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataTesting", "KataTesting\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geneva", "Geneva\Geneva.csproj", "{94B1C042-C250-46DF-A04E-3B69C472FB97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrackingTheCode", "CrackingTheCode\CrackingTheCode.csproj", "{CE083DC3-D27D-45B3-ACF9-F8589E177D21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrackingTheCodeTests", "CrackingTheCodeTests\CrackingTheCodeTests.csproj", "{D76AFC23-2CF1-4517-A3F7-3D892039040C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{94B1C042-C250-46DF-A04E-3B69C472FB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94B1C042-C250-46DF-A04E-3B69C472FB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94B1C042-C250-46DF-A04E-3B69C472FB97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE083DC3-D27D-45B3-ACF9-F8589E177D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE083DC3-D27D-45B3-ACF9-F8589E177D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE083DC3-D27D-45B3-ACF9-F8589E177D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE083DC3-D27D-45B3-ACF9-F8589E177D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D76AFC23-2CF1-4517-A3F7-3D892039040C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76AFC23-2CF1-4517-A3F7-3D892039040C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76AFC23-2CF1-4517-A3F7-3D892039040C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76AFC23-2CF1-4517-A3F7-3D892039040C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
