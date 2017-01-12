@@ -27,5 +27,26 @@ namespace CrackingTheCodingInt.TreeNodes
             else
                 return IsBalanced(root.LeftChild) && IsBalanced(root.RightChild);
         }
+
+        //public static string BFS(TreeNode node)
+        //{
+        //    Queue<TreeNode> q = new Queue<TreeNode>();
+        //    StringBuilder sb = new StringBuilder();
+        //    q.Enqueue(node);
+        //    while (q.Count > 0)
+        //    {
+        //        var child = q.Dequeue();
+        //        sb.Append(child.ToString());
+        //        if (child.LeftChild != null)
+        //            q.Enqueue(child.LeftChild);
+        //        if (child.RightChild != null)
+        //            q.Enqueue(child.RightChild);
+                
+        //    }
+
+        //    return sb.ToString();
+        //}
+
+
     }
 }
