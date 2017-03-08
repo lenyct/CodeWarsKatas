@@ -23,7 +23,7 @@ namespace KataTesting
         [Test]
         public void ShouldFailNegativeNumberRadiusOfCirlce()
         {
-            Assert.Throws<ArgumentException>(delegate { CodeWarsKatas.Katas.CalculateAreaOfCircle("-123"); });           
+            Assert.Throws<ArgumentException>(delegate { Katas.CalculateAreaOfCircle("-123"); });           
         }
 
         [Test]
